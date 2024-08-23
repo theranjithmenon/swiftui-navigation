@@ -14,6 +14,7 @@ struct FirstView: View {
         VStack{
             TextField("Text", text: $demoText)
                 .textFieldStyle(.roundedBorder)
+                .autocorrectionDisabled()
                 .padding()
             Button("Go to second page") {
                 path.append(NavigationRoutes.secondView(data: demoText))

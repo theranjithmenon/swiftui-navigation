@@ -14,19 +14,8 @@ struct navigationApp: App {
         WindowGroup {
             NavigationStack(path: $path) {
                 FirstView(path: $path)
-                
                 .navigationDestination(for: NavigationRoutes.self) { value in
-                    switch value {
-                    case .firstView:
-                        FirstView(path: $path)
-                    case .secondView(let data):
-                        SecondView(path: $path,data: data)
-                    case .thirdView(let data):
-                        ThirdView(path: $path,data: data)
-                    case .fourthView(let data):
-                        FourthView(path: $path,data: data)
-                    
-                    }
+                    getDestination(for: value, path: $path)
                 }
             }
 
