@@ -1,8 +1,8 @@
 //
-//  ContentView.swift
+//  FirstView.swift
 //  navigation
 //
-//  Created by Admin Qaptive on 22/08/24.
+//  Created by Ranjith Menon on 22/08/24.
 //
 
 import SwiftUI
@@ -17,6 +17,8 @@ struct FirstView: View {
                 .autocorrectionDisabled()
                 .padding()
             Button("Go to second page") {
+                // NAVIGATES TO SECONDVIEW
+                // CURRENT ROOT -> FIRSTVIEW
                 path.append(NavigationRoutes.secondView(data: demoText))
             }
         }.navigationTitle("First Page")
@@ -27,12 +29,21 @@ struct FirstView: View {
 
 struct SecondView: View {
     @Binding var path:[NavigationRoutes]
+    @Binding var appState: AppState
     var data: String
     var body: some View {
         VStack{
             Text(data)
             Button("Go to third page") {
+                // NAVIGATES TO THIRDVIEW
+                // CURRENT ROOT -> FIRSTVIEW
                 path.append(.thirdView(data: data))
+            }
+            Button("Make third page root") {
+                // NAVIGATES TO THIRDVIEW
+                // CURRENT ROOT -> THIRDPAGE
+                path.removeLast(path.count)
+                appState = .thirdView
             }
         }.navigationTitle("Second Page")
     }
@@ -45,6 +56,8 @@ struct ThirdView: View {
         VStack{
             Text(data)
             Button("Go to fourth page") {
+                // NAVIGATES TO FOURTHVIEW
+                // CURRENT ROOT -> DEPENDS ON THE BUTTON CLICKED
                 path.append(.fourthView(data: data))
             }
         }.navigationTitle("Third Page")
@@ -58,6 +71,8 @@ struct FourthView: View {
         VStack{
             Text(data)
             Button(action: {
+                // NAVIGATES TO ROOT.
+                // CURRENT ROOT -> DEPENDS ON THE BUTTON CLICKED
                 path.removeLast(path.count)
             }, label: {
                 Text("Go to root")
