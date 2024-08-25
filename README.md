@@ -22,7 +22,7 @@
 
 <p>Clone the repository to your local machine:</p>
 
-<pre><code>git clone https://github.com/yourusername/swiftui-navigation-example.git
+<pre><code>git clone https://github.com/theranjithmenon/swiftui-navigation.git
 cd swiftui-navigation-example
 </code></pre>
 
