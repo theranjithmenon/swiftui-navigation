@@ -163,7 +163,7 @@ cd swiftui-navigation
         VStack {
             Text(data)
             Button(action: {
-                path.removeAll()
+                path.removeLast(path.count)
             }) {
                 Text("Go to root")
             }
