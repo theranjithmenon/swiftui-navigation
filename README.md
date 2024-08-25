@@ -23,7 +23,7 @@
 <p>Clone the repository to your local machine:</p>
 
 <pre><code>git clone https://github.com/theranjithmenon/swiftui-navigation.git
-cd swiftui-navigation-example
+cd swiftui-navigation
 </code></pre>
 
 <p>Open the project in Xcode and run it on a simulator or a physical device.</p>
