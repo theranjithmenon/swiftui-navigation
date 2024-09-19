@@ -10,12 +10,12 @@ import SwiftUI
 @main
 struct navigationApp: App {
     @State private var path: [NavigationRoutes] = []
-    @State private var appStete: AppState = .firstView
+    @State private var appState: AppState = .firstView
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $path) {
                 VStack{
-                    switch appStete {
+                    switch appState {
                     case .firstView:
                         FirstView(path: $path)
                     case .thirdView:
@@ -23,7 +23,7 @@ struct navigationApp: App {
                     }
                 }
                 .navigationDestination(for: NavigationRoutes.self) { value in
-                    getDestination(for: value, path: $path, appState: $appStete)
+                    getDestination(for: value, path: $path, appState: $appState)
                 }
             }
 
